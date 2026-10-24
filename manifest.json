@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YT 144p + Unhook",
+  "version": "1.0",
+  "description": "Força todos os vídeos do YouTube em 144p (sem poder aumentar) e remove distrações como o Unhook.",
+  "permissions": ["storage"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "action": { "default_popup": "popup.html", "default_title": "YT 144p + Unhook" },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["shared.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["main.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN"
+    }
+  ]
+}
